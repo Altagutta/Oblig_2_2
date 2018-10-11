@@ -1,3 +1,4 @@
+//  <FREDRIK>
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,7 +13,9 @@ public class BSTTest {
     }
 
     @Test
-    public void isPerfectMethod(){}
+    public void isPerfectMethod(){
+        assertEquals(true, defaultIntList.isPerfect());
+    }
 
     @Test
     public void countNodesMethod(){
@@ -20,14 +23,15 @@ public class BSTTest {
     }
     @Test
     public void countHeightMethod(){
-        assertEquals(3, defaultIntList.countHeight());
+        assertEquals(3, defaultIntList.height());
     }
     @Test
-    public void getNoLeavesMethod(){
-        assertEquals(4, defaultIntList.getNoLeaves());
+    public void getNoOfLeavesMethod(){
+        assertEquals(4, defaultIntList.getNoOfLeaves());
     }
     @Test
     public void getNoOfNonLeavesMethod(){
-        assertEquals(3, defaultIntList.getNoOfNonLeaaves());
+        assertEquals(3, defaultIntList.getNoOfNonLeaves());
     }
 }
+//  </FREDRIK>

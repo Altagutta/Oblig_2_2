@@ -52,6 +52,14 @@ public class BST<E extends Comparable<E>> implements Tree<E> {
     }
     //  </SEVERIN>
 
+    public int getNoOfLeaves(){
+        return 0;
+    }
+
+    public int getNoOfNonLeaves(){
+        return 0;
+    }
+
     @Override
     /** Returns true if the element is in the tree */
     public boolean search(E e) {
