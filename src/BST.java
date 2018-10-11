@@ -53,6 +53,51 @@ public class BST<E extends Comparable<E>> implements Tree<E> {
         return (countNodes() == (Math.pow(2, height()) - 1));
     }
     //  </SEVERIN>
+    //  <ANDREAS>
+    public int getNoOfLeaves(){
+        if(root == null) { return 0; }
+        int amountOfLeaves = 0;
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while(!queue.isEmpty()) {
+            TreeNode<E> node = queue.removeFirst();
+            if(node.left != null) {
+                queue.add(node.left);
+            }
+            if(node.right != null) {
+                queue.add(node.right);
+            }
+            if(node.left == null && node.right == null) {
+                amountOfLeaves++;
+            }
+        }
+        return amountOfLeaves;
+    }
+
+    public int getNoOfNonLeaves(){
+        if(root == null) { return 0; }
+        int amountOfNonLeaves = 0;
+        boolean added = false;
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while(!queue.isEmpty()) {
+            TreeNode<E> node = queue.removeFirst();
+            if(node.left != null) {
+                added = true;
+                queue.add(node.left);
+            }
+            if(node.right != null) {
+                added = true;
+                queue.add(node.right);
+            }
+            if(added) {
+                amountOfNonLeaves++;
+            }
+            added = false;
+        }
+        return amountOfNonLeaves;
+    }
+    //  </ANDREAS>
 
     //  <SEVERIN, ANDREAS, FREDRIK>
     public ArrayList<TreeNode<E>> inorderIterative() {
