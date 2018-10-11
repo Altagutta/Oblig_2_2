@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Stack;
 
 public class BST<E extends Comparable<E>> implements Tree<E> {
     protected TreeNode<E> root;
@@ -51,6 +53,27 @@ public class BST<E extends Comparable<E>> implements Tree<E> {
         return (countNodes() == (Math.pow(2, height()) - 1));
     }
     //  </SEVERIN>
+
+    //  <SEVERIN, ANDREAS, FREDRIK>
+    public ArrayList<TreeNode<E>> inorderIterative() {
+        Stack<TreeNode<E>> stack = new Stack();
+        ArrayList<TreeNode<E>> result = new ArrayList();
+        stack.push(root);
+        TreeNode<E> current = root;
+
+        while(current != null || !stack.empty()) {
+            while(current != null) {
+                stack.push(current);
+                current = current.left;
+            }
+            current = stack.pop();
+            result.add(current);
+            current = current.right;
+        }
+
+        return result;
+    }
+    // </SEVERIN, ANDREAS, FREDRIK>
 
     @Override
     /** Returns true if the element is in the tree */
@@ -113,11 +136,11 @@ public class BST<E extends Comparable<E>> implements Tree<E> {
     /**
      * Inorder traversal from a subtree
      */
-    protected void inorder(TreeNode<E> root) {
-        if (root == null) return;
-        inorder(root.left);
-        System.out.print(root.element + " ");
-        inorder(root.right);
+    protected void inorder(TreeNode<E> current) {
+        if (current == null) return;
+        inorder(current.left);
+        System.out.print(current.element + " ");
+        inorder(current.right);
     }
 
     @Override
