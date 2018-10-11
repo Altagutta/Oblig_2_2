@@ -28,7 +28,7 @@ public class BSTTest {
     @Test
     public void countHeightMethod(){
         assertEquals(3, PerfectBST.height());
-        assertEquals(3, ImperfectBST.height());
+        assertEquals(4, ImperfectBST.height());
     }
     @Test
     public void getNoOfLeavesMethod(){
