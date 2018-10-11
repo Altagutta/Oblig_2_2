@@ -100,9 +100,9 @@ public class BST<E extends Comparable<E>> implements Tree<E> {
     //  </ANDREAS>
 
     //  <SEVERIN, ANDREAS, FREDRIK>
-    public ArrayList<TreeNode<E>> inorderIterative() {
+    public ArrayList<E> inorderIterative() {
         Stack<TreeNode<E>> stack = new Stack();
-        ArrayList<TreeNode<E>> result = new ArrayList();
+        ArrayList<E> result = new ArrayList();
         stack.push(root);
         TreeNode<E> current = root;
 
@@ -112,7 +112,7 @@ public class BST<E extends Comparable<E>> implements Tree<E> {
                 current = current.left;
             }
             current = stack.pop();
-            result.add(current);
+            result.add(current.element);
             current = current.right;
         }
 
